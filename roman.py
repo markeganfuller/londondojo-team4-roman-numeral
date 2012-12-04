@@ -1,12 +1,27 @@
+import sys
+
+
+"""
+Program to add together 2 roman numerals
+without using integers.
+
+2012 Python Dojo
+"""
 
 
 CHARS = ['I','V','X','L','C','D','M']
+""" Characters by order """
+
 
 def rank(roman_char):
+    """ Return the rank of a roman char """
     return CHARS.index(roman_char)
 
 
 def prep_numeral(numeral):
+    """
+    Prepare a numeral for simple concatenation, removing all subtractions
+    """
     out = []
     n = 0
     while n < len(numeral):
@@ -29,10 +44,12 @@ def prep_numeral(numeral):
 
 
 def sort_numeral(numeral):
+    """ Sort numerals according to rank. """
     return sorted(numeral, key=rank, reverse=True)
 
 
 def compress_numeral(numeral):
+    """ Compress a crudely constructed numeral """
     numeral = ''.join(numeral)
     while True:
         l = len(numeral)
@@ -55,6 +72,7 @@ def compress_numeral(numeral):
 
 
 def add_numeral(n1, n2):
+    """ Add 2 numerals """
     n1 = prep_numeral(n1)
     n2 = prep_numeral(n2)
 
@@ -65,7 +83,6 @@ def add_numeral(n1, n2):
 
 
 if __name__ == '__main__':
-    import sys
     n1, n2 = sys.argv[1:]
     print 'in:', n1, n2
     print 'out', add_numeral(n1, n2)
