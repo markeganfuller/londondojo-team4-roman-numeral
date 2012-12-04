@@ -41,6 +41,13 @@ class RomanNumeralTest(unittest.TestCase):
 
 		self.assertEqual(result, expected)
 
+		input_num = list("CCCXXXVVVVV")
+		expected = "CCCLV"
+
+		result = compress_numeral(input_num)
+
+		self.assertEqual(result, expected)
+
 	def test_20_50(self):
 		input_num1 = "XX"
 		input_num2 = "L"
