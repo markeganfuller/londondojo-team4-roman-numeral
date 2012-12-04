@@ -6,10 +6,6 @@ def rank(roman_char):
     return CHARS.index(roman_char)
 
 
-def normalize_roman_char():
-    pass
-
-
 def prep_numeral(numeral):
     out = []
     n = 0
@@ -29,3 +25,8 @@ def prep_numeral(numeral):
                 out.append(numeral[n])
         n += 1
     return out
+
+
+
+def sort_numeral(numeral):
+    return sorted(numeral, key=rank, reverse=True)
