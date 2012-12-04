@@ -53,7 +53,7 @@ class RomanNumeralTest(unittest.TestCase):
 		input_num2 = "L"
 		expected = "LXX"
 
-		result = add_numerals(input_num1, input_num2)
+		result = add_numeral(input_num1, input_num2)
 
 		self.assertEqual(result, expected)
 
@@ -62,6 +62,6 @@ class RomanNumeralTest(unittest.TestCase):
 		input_num2 = "CC"
 		expected = "CCXXVI"
 
-		result = add_numerals(input_num1, input_num2)
+		result = add_numeral(input_num1, input_num2)
 
 		self.assertEqual(result, expected)
