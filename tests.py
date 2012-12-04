@@ -5,22 +5,29 @@ class RomanNumeralTest(unittest.TestCase):
 
 	def test_prep_numeral(self):
 		input_num = "IV"
-		expected = ["I", "I", "I", "I"]
+		expected = list("IIII")
 
 		result = prep_numeral(input_num)
 
 		self.assertEqual(result, expected)
 
 		input_num = "XC"
-		expected = ["X", "X", "X", "X", "L"]
+		expected = list("XXXXL")
 
 		result = prep_numeral(input_num)
 
 		self.assertEqual(result, expected)
 
 	def test_sort_numeral(self):
-		input_num = "X", "X", "L"
+		input_num = list("XXL")
 		expected = list("LXX")
+
+		result = sort_numeral(input_num)
+
+		self.assertEqual(result, expected)
+
+		input_num = list("XXVICC")
+		expected = list("CCXXVI")
 
 		result = sort_numeral(input_num)
 
@@ -34,14 +41,14 @@ class RomanNumeralTest(unittest.TestCase):
 
 		self.assertEqual(result, expected)
 
-	# def test_20_50(self):
-	# 	input_num1 = "XX"
-	# 	input_num2 = "L"
-	# 	expected = "LXX"
+	def test_20_50(self):
+		input_num1 = "XX"
+		input_num2 = "L"
+		expected = "LXX"
 
-	# 	result = add_numerals(input_num1, input_num2)
+		result = add_numerals(input_num1, input_num2)
 
-	# 	self.assertEqual(result, expected)
+		self.assertEqual(result, expected)
 
 	def test_26_200(self):
 		input_num1 = "XXVI"
