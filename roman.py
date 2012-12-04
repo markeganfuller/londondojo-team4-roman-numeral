@@ -12,13 +12,20 @@ def normalize_roman_char():
 
 def prep_numeral(numeral):
     out = []
-    for n in range(len(numeral)-1):
-        diff = rank(numeral[n]) - rank(numeral[n+1])
-        assert rank >= -2, 'wtf???'
-        if diff <= -1:
-            out.extend([numeral[n]] * 4)
-        if diff == -2:
-            out.append(numeral[n+1])
-        if diff >= 0:
+    n = 0
+    while n < len(numeral):
+        rank_of_current_char = rank(numeral[n])
+        if n == (len(numeral) - 1):
             out.append(numeral[n])
+        else:
+            diff = rank(numeral[n]) - rank(numeral[n+1])
+            assert diff >= -2, 'wtf???'
+            if diff <= -1:
+                out.extend([numeral[n]] * 4)
+                n += 1
+            if diff == -2:
+                out.append(CHARS[rank_of_current_char+1])
+            if diff >= 0:
+                out.append(numeral[n])
+        n += 1
     return out
